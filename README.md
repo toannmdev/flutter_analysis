@@ -1,1 +1,3 @@
-# Gapo Flutter linters
+# Flutter linters
+
+Customized by ToanNM

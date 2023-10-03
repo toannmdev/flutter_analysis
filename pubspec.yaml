@@ -1,6 +1,6 @@
-name: gp_analysis
-description: Gapo Flutter Linters
-version: 0.0.1
+name: flutter_analysis
+description: Flutter Linters, customized by ToanNM
+version: 1.0.0
 # homepage:
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
