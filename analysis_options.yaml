@@ -1,0 +1,4 @@
+include: package:flutter_analysis/gp_analysis_option.yaml
+
+# Additional information about this file can be found at
+# https://dart.dev/guides/language/analysis-options
