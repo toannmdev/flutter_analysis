@@ -1,1 +1,1 @@
-$ Gapo Flutter linters
+# Gapo Flutter linters
