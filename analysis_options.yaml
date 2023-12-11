@@ -2,3 +2,52 @@ include: package:toannm_flutter_analysis/analysis_options.yaml
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
+
+dart_code_metrics:
+  extends:
+    - package:dart_code_metrics_presets/all.yaml
+  anti-patterns:
+    - long-method
+    - long-parameter-list
+  metrics:
+    cyclomatic-complexity: 20
+    lines-of-executable-code: 50
+    number-of-parameters: 4
+    maximum-nesting-level: 5
+  metrics-exclude:
+    - test/**
+  rules:
+    - avoid-long-functions:
+      max-length: 80
+      ignored-names:
+        - some
+        - name
+        - test
+    - avoid-banned-annotations:
+      entries:
+        - paths:
+            [
+              'lib/.*\.dart',
+              'assets/lib/.*\.dart',
+              'core/gp_core/lib/.*\.dart',
+              'features/.*\.dart',
+              'shared/gp_shared_dep/lib/.*\.dart'
+            ]
+          annotations: ["visibleForTesting"]
+          message: "Do not use visibleForTesting here."
+    # - avoid-banned-imports:
+    #     entries:
+    #     - paths: ['some/folder/.*\.dart', 'another/folder/.*\.dart']
+    #       deny: ['package:flutter/material.dart']
+    #       message: 'Do not import Flutter Material Design library, we should not depend on it!'
+    #     - paths: ['core/.*\.dart']
+    #       deny: ['package:flutter_bloc/flutter_bloc.dart']
+    #       message: 'State management should be not used inside "core" folder.'
+    # - avoid-banned-types:
+    #     entries:
+    #     - paths: ['some/folder/.*\.dart', 'another/folder/.*\.dart']
+    #       types: ['SomeType']
+    #       message: 'Do not use SomeType here.'
+    #     - paths: ['core/.*\.dart']
+    #       types: ['CounterBloc']
+    #       message: 'State management should be not used inside "core" folder.'
