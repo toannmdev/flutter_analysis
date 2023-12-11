@@ -4,7 +4,7 @@ LC_ALL=C
 
 local_branch="$(git rev-parse --abbrev-ref HEAD)"
 
-valid_branch_regex='^(feature|feat|bugfix|improvement|release|prod|prod-premise|hotfix|develop)(\/.+)?.+'
+valid_branch_regex='^(feature|feat|bugfix|improvement|release|prod|prod-premise|hotfix|develop|work|work-develop)(\/.+)?.+'
 
 message="$local_branch is bad branch name. See example: feat/sentry"
 
