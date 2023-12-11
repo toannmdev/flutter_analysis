@@ -1,0 +1,45 @@
+#pre-push:
+#  parallel: true
+#  commands:
+#    static_code_analysis:
+#      run: make lint
+
+# pre-commit:
+#   parallel: true
+#   scripts:
+#     "pre-commit.sh":
+#       runner: bash
+#  commands:
+#    format:
+#      run: make format
+
+# commit-msg:
+#   commands:
+#   - name: Dart Commit Message Script
+#     validate:
+#       run: flutter pub run ./commit_message.dart
+      
+pre-commit:
+  commands:
+    lint_code:
+      glob: '*.dart'
+      run: dart fix --apply --code=use_key_in_widget_constructors,unused_import,invalid_null_aware_operator,curly_braces_in_flow_control_structures,avoid_function_literals_in_foreach_calls,prefer_const_constructors,unnecessary_overrides,sort_child_properties_last {staged_files} && git add .
+    format_code:
+      glob: '*.dart'
+      run: dart format {staged_files} && git add .
+
+commit-msg:
+  scripts:
+    "commit-msg.sh":
+      runner: bash
+
+# pre-push:
+#   parallel: true
+#   commands:
+#     tests:
+#       run: flutter test
+#     static_code_analysis:
+#       run: flutter analyze
+#   scripts:
+#     "echo pre-push":
+#       runner: bash
